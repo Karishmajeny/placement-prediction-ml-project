@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Placement Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="main-box">
+
+    <h1>🎓 Student Placement Predictor</h1>
+    <p class="subtitle">Check your placement readiness instantly</p>
+
+    <form action="/predict" method="post">
+
+        <input type="number" step="0.1" name="cgpa" placeholder="Enter CGPA" required>
+
+        <input type="number" name="aptitude" placeholder="Aptitude Score (100)" required>
+
+        <input type="number" name="communication" placeholder="Communication Skill (10)" required>
+
+        <input type="number" name="internships" placeholder="Internships Count" required>
+
+        <input type="number" name="projects" placeholder="Projects Count" required>
+
+        <button type="submit">🚀 Predict Now</button>
+
+    </form>
+
+    {% if prediction_text %}
+        <div class="result-box">
+            <h2>{{ prediction_text }}</h2>
+            <p>{{ advice }}</p>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
